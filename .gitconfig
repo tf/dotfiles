@@ -1,0 +1,49 @@
+[user]
+	name = Tim Fischbach
+	email = tfischbach@codevise.de
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+	br = branch
+	ba = branch
+	diffc = diff --cached
+	pp = !git pull && git push
+        graph = log --oneline --graph --all --decorate
+	llog = log --reverse ORIG_HEAD..@{upstream}
+	logd = log --decorate
+	up = !git pull && git llog
+	gr = log --oneline --all --decorate --graph --date-order
+	aci = commit --amend -C HEAD
+	cpick = cherry-pick
+	cm = commit
+	acm = commit --amend -C HEAD
+        pmerge = !git checkout production && git merge master --no-ff -m \"merge master into production\" && git checkout -
+        smerge = !git checkout staging && git merge master --no-ff -m \"merge master into staging\" && git checkout -
+        ppull = !git checkout production && git pull origin production && git checkout -
+        spull = !git checkout staging && git pull origin staging && git checkout -
+        ppush = !git checkout production && git push origin production && git checkout -
+        spush = !git checkout staging && git push origin staging && git checkout -
+        
+        pullu = !git checkout master && git pull upstream master && git checkout -
+        pusho = !git checkout master && git push origin master && git checkout -
+
+        cicl = !git commit -m \"Update Changelog\"
+        
+	g = log --graph --decorate --oneline
+	vb = vbranch
+[color]
+	diff = auto
+[push]
+	default = current
+[branch]
+	autosetuprebase = always
+[core]
+	editor = emacsclient --alternate-editor emacs
+	excludesfile = /home/tfischbach/.gitignore_global
+	excludefile = /home/tfischbach/.gitignore_global
+[redmine]
+	apikey = 8fffdfc81b6bef5daf1f1ab3d1edbcc622e879af
+	url = https://redmine.codevise.de
+[rebase]
+	autosquash = true

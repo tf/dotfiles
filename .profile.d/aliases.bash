@@ -24,8 +24,10 @@ alias rbenvg192='rbenv global 1.9.2-p320'
 alias rbenvg193='rbenv global 1.9.3-p194'
 
 alias b='bundle exec'
+alias s='spring'
 
 alias npmll='npm ls|grep ">"'
 
+alias git='LANG=en_US git'
 alias g='git status'
 alias gr='git gr'

@@ -1,0 +1,8 @@
+*~
+*_flymake.rb
+.#*
+/.rvmrc
+.livereload
+/.vhost
+.linked_gems
+BRANCHES
