@@ -47,7 +47,6 @@
 	excludesfile = /home/tfischbach/.gitignore_global
 	excludefile = /home/tfischbach/.gitignore_global
 [redmine]
-	apikey = 8fffdfc81b6bef5daf1f1ab3d1edbcc622e879af
 	url = https://redmine.codevise.de
 [rebase]
 	autosquash = true
