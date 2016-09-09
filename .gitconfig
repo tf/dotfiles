@@ -8,22 +8,24 @@
 	br = branch
 	ba = branch
 	diffc = diff --cached
-	pp = !git pull && git push
-        graph = log --oneline --graph --all --decorate
-	llog = log --reverse ORIG_HEAD..@{upstream}
 	logd = log --decorate
-	up = !git pull && git llog
-	gr = log --oneline --all --decorate --graph --date-order
+	gr = !git log --oneline --all --decorate --graph --date-order --not $(git config gr.hide)
 	aci = commit --amend -C HEAD
 	cpick = cherry-pick
 	cm = commit
-	acm = commit --amend -C HEAD
-        pmerge = !git checkout production && git merge master --no-ff -m \"merge master into production\" && git checkout -
+
+        pmerge = !git checkout production && git merge master --no-ff -m 'merge master into production' && git checkout -
+        ppmerge = "!sh -c \"git checkout $1-production && git merge master --no-ff -m 'merge master into $1-production' && git checkout -\" -"
         smerge = !git checkout staging && git merge master --no-ff -m \"merge master into staging\" && git checkout -
+
         ppull = !git checkout production && git pull origin production && git checkout -
+        pppull = "!sh -c \"git checkout $1-production && git pull origin $1-production && git checkout -\" -"
         spull = !git checkout staging && git pull origin staging && git checkout -
-        ppush = !git checkout production && git push origin production && git checkout -
-        spush = !git checkout staging && git push origin staging && git checkout -
+
+        mpush = !git checkout master && git push origin master && git checkout -
+        ppush = !git mpush && git checkout production && git push origin production && git checkout -
+        pppush = "!git mpush && sh -c \"git checkout $1-production && git push origin $1-production && git checkout -\" -"
+        spush = !git mpush && git checkout staging && git push origin staging && git checkout -
         
         pullu = !git checkout master && git pull upstream master && git checkout -
         pusho = !git checkout master && git push origin master && git checkout -
@@ -32,6 +34,8 @@
         
 	g = log --graph --decorate --oneline
 	vb = vbranch
+	fu = commit --fixup
+	pushf = push --force-with-lease
 [color]
 	diff = auto
 [push]
