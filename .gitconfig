@@ -1,6 +1,8 @@
 [user]
 	name = Tim Fischbach
 	email = tfischbach@codevise.de
+[include]
+        path = .gitconfig_secrets
 [alias]
 	ci = commit
 	co = checkout
