@@ -16,15 +16,18 @@
 	cpick = cherry-pick
 	cm = commit
 
+        rmerge = !git checkout release && git merge master --no-ff -m 'merge master into release' && git checkout -
         pmerge = !git checkout production && git merge master --no-ff -m 'merge master into production' && git checkout -
         ppmerge = "!sh -c \"git checkout $1-production && git merge master --no-ff -m 'merge master into $1-production' && git checkout -\" -"
         smerge = !git checkout staging && git merge master --no-ff -m \"merge master into staging\" && git checkout -
 
+        rpull = !git checkout release && git pull origin release && git checkout -
         ppull = !git checkout production && git pull origin production && git checkout -
         pppull = "!sh -c \"git checkout $1-production && git pull origin $1-production && git checkout -\" -"
         spull = !git checkout staging && git pull origin staging && git checkout -
 
         mpush = !git checkout master && git push origin master && git checkout -
+        rpush = !git mpush && git checkout release && git push origin release && git checkout -
         ppush = !git mpush && git checkout production && git push origin production && git checkout -
         pppush = "!git mpush && sh -c \"git checkout $1-production && git push origin $1-production && git checkout -\" -"
         spush = !git mpush && git checkout staging && git push origin staging && git checkout -
@@ -52,3 +55,5 @@
 	url = https://redmine.codevise.de
 [rebase]
 	autosquash = true
+[rerere]
+	enabled = true

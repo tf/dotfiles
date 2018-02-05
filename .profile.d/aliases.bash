@@ -15,3 +15,6 @@ alias b='bundle exec'
 alias git='LANG=en_US git'
 alias g='git status'
 alias gr='git gr'
+
+alias pr='git push origin && hub pull-request -o'
+alias gup='git co master && git pull upstream master && git fetch -p'
