@@ -18,3 +18,14 @@ alias gr='git gr'
 
 alias pr='git push origin && hub pull-request -o'
 alias gup='git co master && git pull upstream master && git fetch -p'
+
+function bundle-link() {
+  bundle config --local local.$1 "$HOME/code/gh/$1"
+}
+
+function bundle-unlink() {
+  bundle config --delete local.$1
+}
+
+alias bl=bundle-link
+alias bu=bundle-unlink
