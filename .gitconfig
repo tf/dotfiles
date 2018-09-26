@@ -37,7 +37,7 @@
 
         cicl = !git commit -m \"Update Changelog\"
         
-	g = log --graph --decorate --oneline
+	g = log --graph --decorate --oneline --date-order
 	vb = vbranch
 	fu = commit --fixup
 	pushf = push --force-with-lease
