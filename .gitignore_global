@@ -6,3 +6,6 @@
 /.vhost
 .linked_gems
 BRANCHES
+.claude
+CLAUDE.md
+.workspace-config
