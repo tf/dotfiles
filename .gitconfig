@@ -11,7 +11,7 @@
 	ba = branch
 	diffc = diff --cached
 	logd = log --decorate
-	gr = !git log --oneline --all --decorate --graph --date-order --not $(git config gr.hide)
+	gr = !git log --oneline --all --decorate --graph --date-order
 	aci = commit --amend -C HEAD
 	cpick = cherry-pick
 	cm = commit
@@ -41,6 +41,8 @@
 	vb = vbranch
 	fu = commit --fixup
 	pushf = push --force-with-lease
+	idffc = diffc
+	diffs = diff -R stash
 [color]
 	diff = auto
 [push]
@@ -57,3 +59,14 @@
 	autosquash = true
 [rerere]
 	enabled = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
